@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='author' content=''>
+    <meta name='keywords' content=''>
+    <meta name='description' content=''>
+    <style>
+        .form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Educación</h1>
+    <header>
+        <img src="Imagen1.jpg" width="150">
+        <nav>
+            <h1></h1>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="educacion.html">Educación</a></li>
+                <li><a href="index.html">Experiencia</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h3>Educación</h3>
+        <table border="1" id="tablaEducacion">
+            <thead>
+                <tr>
+                    <th>Año</th>
+                    <th>Institución</th>
+                    <th>Ciudad</th>
+                    <th>Titulo obtenido</th>
+                    <th>¿Culminó?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2002</td>
+                    <td>Bachiller Técnico</td>
+                    <td>Manizales</td>
+                    <td>Bachiller Técnico</td>
+                    <td>Si</td>
+                </tr>
+                <tr>
+                    <td>2007</td>
+                    <td>Fuerza Aérea Colombiana</td>
+                    <td>Manizales</td>
+                    <td>Tecnólogo en Electrónica</td>
+                    <td>Si</td>
+                </tr>
+                <tr>
+                    <td>2019</td>
+                    <td>SENA Caldas</td>
+                    <td>Manizales</td>
+                    <td>Tecnólogo biomedico</td>
+                    <td>Si</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <hr>
+    <section>
+        <h1>Agregar Educación</h1>
+        <form id="formularioEducacion">
+            <div class="form">
+                <label for="">Año:</label>
+                <input type="text" name="año" id="año" required>
+                    
+                </select>
+            </div>
+            <div class="form">
+                <label for="">Institución:</label>
+                <input type="text" name="institucion" id="institucion" required>
+            </div>
+            <div class="form">
+                <label for="">Ciudad:</label>
+                <input type="text" name="ciudad" id="ciudad" required>
+            </div>
+            <div class="form">
+                <label for="">Titulo obtenido:</label>
+                <input type="text" name="titulo" id="titulo" required>
+            </div>
+            <div class="form">
+                <label for="">¿Culminó?</label>
+                <input type="radio" name="culmino" id="si" required checked>
+                <label for="">Si</label>
+                <input type="radio" name="culmino" id="no" required>
+                <label for="">No</label>
+            </div>
+            <button type="button" onclick="agregarEducacion()">Agregar</button>
+        </form>
+    </section>
+    <footer>
+        <ul>
+            <li>Email: luisfelipegc79@gmail.com</li>
+            <li>Teléfono: (+57) 3028482778</li>
+            <li>Redes Sociales
+                <ul>
+                    <li>Facebook: <a href="https://www.facebook.com/felipe.gutierrez.79827/" target="_blank">Perfil de Facebook</a></li>
+                    <li>Instagram: <a href="https://www.instagram.com/luisfelipegc79/" target="_blank">Perfil de Instagram</a></li>
+                </ul>
+            </li>
+            <li>Dirección: Calle 10 A 1 # 38 A 08 Manizales, Colombia</li>
+        </ul>
+    </footer>
+
+    <script>
+        function agregarEducacion() {
+            // Obtener valores del formulario
+            var año = document.getElementById("año").value;
+            var institucion = document.getElementById("institucion").value;
+            var ciudad = document.getElementById("ciudad").value;
+            var titulo = document.getElementById("titulo").value;
+            var culmino = document.querySelector('input[name="culmino"]:checked').id;
+
+            // Crear nueva fila en la tabla
+            var table = document.getElementById("tablaEducacion").getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+
+            // Agregar valores a las celdas
+            cell1.innerHTML = año;
+            cell2.innerHTML = institucion;
+            cell3.innerHTML = ciudad;
+            cell4.innerHTML = titulo;
+            cell5.innerHTML = culmino;
+
+            // Limpiar formulario
+            document.getElementById("formularioEducacion").reset();
+        }
+    </script>
+</body>
+</html>
